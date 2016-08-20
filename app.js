@@ -253,9 +253,7 @@ function receivedMessage(event) {
 
     sendTextMessage(senderID, getParking(messageText));
     }
-  } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
-  }
+  } 
 }
 
   //parse message for location
