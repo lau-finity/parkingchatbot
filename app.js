@@ -267,7 +267,7 @@ function getParking(messageText) {
     return ("C no data. go fuck yourself.")
     //return( parkingCall("C") )
   }
-  else if(parseMsg.indexOf("lot n" > -1)){
+  else if(parseMsg.indexOf("lot n") > -1){
     return ("N no data. go fuck yourself.")
     //return( parkingCall("N") )
   }
