@@ -262,17 +262,17 @@ function getParking(messageText) {
 
   var parseMsg = messageText.toLowerCase()
 
-  if(parseMsg.indexOf("lot c")){
+  if(parseMsg.indexOf("lot c") > -1){
     return ("no data. go fuck yourself.")
     //return( parkingCall("C") )
   }
-  else if(parseMsg.indexOf("lot n")){
+  else if(parseMsg.indexOf("lot n" > -1)){
     //return( parkingCall("N") )
   }
-  else if(parseMsg.indexOf("lot w")){
+  else if(parseMsg.indexOf("lot w") > -1){
     //return( parkingCall("W") )
   }
-  else if(parseMsg.indexOf("lot x")){
+  else if(parseMsg.indexOf("lot x") > -1){
     //return( parkingCall("X") )
   }
   else{
