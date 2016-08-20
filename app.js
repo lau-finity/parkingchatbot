@@ -261,21 +261,22 @@ function receivedMessage(event) {
 function getParking(messageText) {
 
   var parseMsg = messageText.toLowerCase()
+  console.log(parseMsg)
 
   if(parseMsg.indexOf("lot c") > -1){
-    return ("no data. go fuck yourself.")
+    return ("C no data. go fuck yourself.")
     //return( parkingCall("C") )
   }
   else if(parseMsg.indexOf("lot n" > -1)){
-    return ("no data. go fuck yourself.")
+    return ("N no data. go fuck yourself.")
     //return( parkingCall("N") )
   }
   else if(parseMsg.indexOf("lot w") > -1){
-    return ("no data. go fuck yourself.")
+    return ("W no data. go fuck yourself.")
     //return( parkingCall("W") )
   }
   else if(parseMsg.indexOf("lot x") > -1){
-    return ("no data. go fuck yourself.")
+    return ("X no data. go fuck yourself.")
     //return( parkingCall("X") )
   }
   else{
