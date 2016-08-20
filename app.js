@@ -252,8 +252,8 @@ function receivedMessage(event) {
   if (messageText) {
 
     sendTextMessage(senderID, getParking(messageText));
-    }
-  } 
+  }
+ 
 }
 
   //parse message for location
