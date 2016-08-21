@@ -292,16 +292,16 @@ request('http://api.uwaterloo.ca/v2/parking/watpark.json?key=6fc911746c80939867b
 
   switch(lotLetter) {
     case 'C':
-    return("lot name: C\ncapacity: " + data[0].capacity + "\ncurrent count: " + data[0].current_count + "\npercentage filled: " + data[0].percentage_filled);
+    return("lot name: C\ncapacity: " + data[0].item.capacity + "\ncurrent count: " + data[0].item.current_count + "\npercentage filled: " + data[0].item.percentage_filled);
     break;
     case 'N':
-    return("lot name: N\ncapacity: " + data[1].capacity + "\ncurrent count: " + data[1].current_count + "\npercentage filled: " + data[1].percentage_filled);
+    return("lot name: N\ncapacity: " + data[1].item.capacity + "\ncurrent count: " + data[1].item.current_count + "\npercentage filled: " + data[1].item.percentage_filled);
     break;
     case 'W':
-    return("lot name: W\ncapacity: " + data[2].capacity + "\ncurrent count: " + data[2].current_count + "\npercentage filled: " + data[2].percentage_filled);
+    return("lot name: W\ncapacity: " + data[2].item.capacity + "\ncurrent count: " + data[2].item.current_count + "\npercentage filled: " + data[2].item.percentage_filled);
     break;
     case 'X':
-    return("lot name: X\ncapacity: " + data[3].capacity + "\ncurrent count: " + data[3].current_count + "\npercentage filled: " + data[3].percentage_filled);
+    return("lot name: X\ncapacity: " + data[3].item.capacity + "\ncurrent count: " + data[3].item.current_count + "\npercentage filled: " + data[3].item.percentage_filled);
     break;
     default:
     break;
