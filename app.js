@@ -291,6 +291,7 @@ request('http://api.uwaterloo.ca/v2/parking/watpark.json?key=6fc911746c80939867b
   var data = JSON.parse(body).data,
       retString;
 
+  console.log("The api call data is: "+data )    
   switch(lotLetter) {
     case 'C':
       retString =("lot name: C\ncapacity: " + data[0].capacity + "\ncurrent count: " + data[0].current_count + "\npercentage filled: " + data[0].percentage_filled);
