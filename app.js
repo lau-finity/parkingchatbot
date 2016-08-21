@@ -280,7 +280,8 @@ function getParking(messageText) {
     return ("Sorry, you're going to have to specify one of these options:\nLot C\nLot N\nLot W\nLot X")
   }
 
-  parkingCall(retLetter,function(val){
+  parkingCall(retLetter, function(val){
+    console.log("theval is:"+ val)
     return val
   })
 
