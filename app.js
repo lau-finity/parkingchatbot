@@ -260,56 +260,59 @@ function receivedMessage(event) {
   //else provide parking lot options 
 function getParking(messageText) {
 
-  var parseMsg = messageText.toLowerCase()
+  var parseMsg = messageText.toLowerCase(),
+      retLetter;
   console.log(parseMsg)
 
   if(parseMsg.indexOf("lot c") > -1){
-    return( parkingCall("C") )
+    retLetter = "C"
   }
   else if(parseMsg.indexOf("lot n") > -1){
-    return( parkingCall("N") )
+    retLetter = "N"
   }
   else if(parseMsg.indexOf("lot w") > -1){
-    return( parkingCall("W") )
+    retLetter = "W"
   }
   else if(parseMsg.indexOf("lot x") > -1){
-    return( parkingCall("X") )
+    retLetter = "X"
   }
   else{
     return ("Sorry, you're going to have to specify one of these options:\nLot C\nLot N\nLot W\nLot X")
   }
 
+  parkingCall(retLetter,function(val){
+    return val
+  })
+
 }
  
-function parkingCall(lotLetter) {
+function parkingCall(lotLetter, callback) {
 
 request('http://api.uwaterloo.ca/v2/parking/watpark.json?key=6fc911746c80939867b6c87cc8536aaa', function(error, response, body){
   if(error){
     return(error)
   }
 
-  var data = JSON.parse(body).data,
-      retString;
+  var data = JSON.parse(body).data;
 
-  console.log("The api call data is: "+data )    
+  console.log("The api call data is: "+data[0].capacity )    
   switch(lotLetter) {
     case 'C':
-      retString ="lot name: C\ncapacity: " + data[0].capacity + "\ncurrent count: " + data[0].current_count + "\npercentage filled: " + data[0].percentage_filled;
+      callback("lot name: C\ncapacity: " + data[0].capacity + "\ncurrent count: " + data[0].current_count + "\npercentage filled: " + data[0].percent_filled)
       break;
     case 'N':
-      retString ="lot name: N\ncapacity: " + data[1].capacity + "\ncurrent count: " + data[1].current_count + "\npercentage filled: " + data[1].percentage_filled;
+      callback("lot name: N\ncapacity: " + data[1].capacity + "\ncurrent count: " + data[1].current_count + "\npercentage filled: " + data[1].percent_filled)
       break;
     case 'W':
-      retString ="lot name: W\ncapacity: " + data[2].capacity + "\ncurrent count: " + data[2].current_count + "\npercentage filled: " + data[2].percentage_filled;
+      callback("lot name: W\ncapacity: " + data[2].capacity + "\ncurrent count: " + data[2].current_count + "\npercentage filled: " + data[2].percent_filled)
       break;
     case 'X':
-      retString = "lot name: X\ncapacity: " + data[3].capacity + "\ncurrent count: " + data[3].current_count + "\npercentage filled: " + data[3].percentage_filled;
+      callback("lot name: X\ncapacity: " + data[3].capacity + "\ncurrent count: " + data[3].current_count + "\npercentage filled: " + data[3].percent_filled)
      break;
     default:
   }
-
-  return retString
 });
+
 }
 /*
  * Delivery Confirmation Event
