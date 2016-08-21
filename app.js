@@ -280,7 +280,7 @@ function getParking(messageText) {
     //return( parkingCall("X") )
   }
   else{
-    return ("Sorry, you're going to have to specify one of these options:\nLot C\nLot N\nLot W\nLot X.")
+    return ("Sorry, you're going to have to specify one of these options:\nLot C\nLot N\nLot W\nLot X")
   }
 
 }
