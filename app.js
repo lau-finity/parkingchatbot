@@ -264,27 +264,50 @@ function getParking(messageText) {
   console.log(parseMsg)
 
   if(parseMsg.indexOf("lot c") > -1){
-    return ("C no data. go fuck yourself.")
-    //return( parkingCall("C") )
+    return( parkingCall("C") )
   }
   else if(parseMsg.indexOf("lot n") > -1){
-    return ("N no data. go fuck yourself.")
-    //return( parkingCall("N") )
+    return( parkingCall("N") )
   }
   else if(parseMsg.indexOf("lot w") > -1){
-    return ("W no data. go fuck yourself.")
-    //return( parkingCall("W") )
+    return( parkingCall("W") )
   }
   else if(parseMsg.indexOf("lot x") > -1){
-    return ("X no data. go fuck yourself.")
-    //return( parkingCall("X") )
+    return( parkingCall("X") )
   }
   else{
     return ("Sorry, you're going to have to specify one of these options:\nLot C\nLot N\nLot W\nLot X")
   }
 
 }
+ 
+function parkingCall(lotLetter) {
 
+request('http://api.uwaterloo.ca/v2/parking/watpark.json?key=6fc911746c80939867b6c87cc8536aaa', function(error, response, body){
+  if(error){
+    return(error)
+  }
+
+  var data = JSON.parse(body).data;
+
+  switch(lotLetter) {
+    case 'C':
+    return("lot name: C\ncapacity: " + data[0].capacity + "\ncurrent count: " + data[0].current_count + "\npercentage filled: " + data[0].percentage_filled);
+    break;
+    case 'N':
+    return("lot name: N\ncapacity: " + data[1].capacity + "\ncurrent count: " + data[1].current_count + "\npercentage filled: " + data[1].percentage_filled);
+    break;
+    case 'W':
+    return("lot name: W\ncapacity: " + data[2].capacity + "\ncurrent count: " + data[2].current_count + "\npercentage filled: " + data[2].percentage_filled);
+    break;
+    case 'X':
+    return("lot name: X\ncapacity: " + data[3].capacity + "\ncurrent count: " + data[3].current_count + "\npercentage filled: " + data[3].percentage_filled);
+    break;
+    default:
+    break;
+  }
+});
+}
 /*
  * Delivery Confirmation Event
  *
