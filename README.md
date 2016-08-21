@@ -1,3 +1,4 @@
+
 # Parking Chat bot -- node.js
 
 With this app, you can ask it if Waterloo Parking Lots C, N, W or X are available. 
@@ -13,5 +14,3 @@ With this app, you can ask it if Waterloo Parking Lots C, N, W or X are availabl
 ## Webhook
 
 All webhook code is in `app.js`. It is routed to `/webhook`. This project handles callbacks for authentication, messages, delivery confirmation and postbacks. More details are available at the [reference docs](https://developers.facebook.com/docs/messenger-platform/webhook-reference).
-
-
