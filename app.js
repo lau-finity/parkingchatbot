@@ -251,14 +251,16 @@ function receivedMessage(event) {
 
   if (messageText) {
 
-    sendTextMessage(senderID, getParking(messageText));
+    getParking(messageText, function(text){
+      sendTextMessage(senderID, text)
+    })
   }
  
 }
 
   //parse message for location
   //else provide parking lot options 
-function getParking(messageText) {
+function getParking(messageText, callback) {
 
   var parseMsg = messageText.toLowerCase(),
       retLetter;
@@ -277,14 +279,15 @@ function getParking(messageText) {
     retLetter = "X"
   }
   else{
-    return ("Sorry, you're going to have to specify one of these options:\nLot C\nLot N\nLot W\nLot X")
+    callback("Sorry, you're going to have to specify one of these options:\nLot C\nLot N\nLot W\nLot X")
+    return
   }
 
   console.log("retLetter is:"+retLetter)
 
   parkingCall(retLetter, function(val){
     console.log("theval is:"+ val)
-    return val
+    callback(val)
   })
 
 }
